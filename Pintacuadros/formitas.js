@@ -16,11 +16,14 @@ for(let i = 1; i<=100; i++){
     return true;
  }
 
- //Funcion para que se pinten los cuadros
- function toggleClasePorTipo(tipo){
-    const numero=paresInt(cuadro.textContent);
+//Funcion para que se pinten los cuadros
+function toggleClasePorTipo(tipo) {
+    const cuadrados = document.getElementsByClassName("cuadro");
 
-  if (tipo === 'pares' && numero % 2 === 0) {
+    for (let cuadro of cuadrados) {
+        const numero = parseInt(cuadro.textContent);
+
+        if (tipo === 'pares' && numero % 2 === 0) {
             cuadro.classList.toggle("azul");
         } else if (tipo === 'impares' && numero % 2 !== 0) {
             cuadro.classList.toggle("rojo");
@@ -28,6 +31,7 @@ for(let i = 1; i<=100; i++){
             cuadro.classList.toggle("verde");
         }
     }
+}
 
     //Botones
     document.getElementById("btnPares").addEventListener("click", ()=> toggleClasePorTipo("pares"));
